@@ -12,19 +12,28 @@ using System.Runtime.CompilerServices;
 
 namespace Inventory.Core
 {
-    internal static class Extensions
+    public static class Extensions
     {
-        public static IServiceCollection AddCore(this IServiceCollection services)
+        public static IServiceCollection AddDomainCore(this IServiceCollection services)
         {
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ISaleRepository, SaleRepository>();
 
-            services.AddDbContext<InventoryDbContext>(option=>
-            {
-                option.UseNpgsql();
-            });
+
             return services;
         }
+
+        public static IServiceCollection AddDb(this IServiceCollection services,string conn)
+        {
+            services.AddDbContext<InventoryDbContext>(option =>
+                {
+                    option.UseNpgsql(conn);
+                });
+
+            return services;
+        }
+
+
     }
 }

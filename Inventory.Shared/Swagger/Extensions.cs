@@ -15,7 +15,7 @@ namespace Inventory.Shared.Swagger
         private const string ApiTitle = "Inventory API";
         private const string ApiVersion = "v1";
 
-        public static IServiceCollection AddSwagger(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
             {

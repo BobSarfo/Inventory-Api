@@ -19,9 +19,6 @@ namespace Inventory.Core.DAL.Repositories
             _context = context;
             _sales = _context.Sales;
         }
-            
-        public Task<bool> ExistsAsync(string name)
-            => _sales.AnyAsync(x => x.Name == name);
 
         public Task<Sale> GetAsync(int id)
             => _sales.SingleOrDefaultAsync(x => x.Id == id);
