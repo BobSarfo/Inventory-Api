@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
 namespace Inventory.Shared.Swagger
 {
-    public class Extensions
+    public static class Extensions
     {
 
         private const string ApiTitle = "Inventory API";
         private const string ApiVersion = "v1";
 
-        public static IServiceCollection AddSharedFramework(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddSwagger(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSwaggerGen(c =>
             {

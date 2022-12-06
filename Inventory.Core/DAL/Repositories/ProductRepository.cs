@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Core.DAL.Repositories
 {
-    internal class ProductRepository : IProductRepository <Product>
+    internal class ProductRepository : IProductRepository 
     {
     }
 }

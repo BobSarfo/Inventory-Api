@@ -1,6 +1,7 @@
 using Inventory.Core.DAL;
 using Inventory.Core.DAL.Repositories;
 using Inventory.Core.Domain.Repository;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.CompilerServices;
 
@@ -21,7 +22,7 @@ namespace Inventory.Core
 
             services.AddDbContext<InventoryDbContext>(option=>
             {
-                option.UseMemoryCache();
+                option.UseNpgsql();
             });
             return services;
         }
