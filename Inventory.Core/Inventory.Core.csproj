@@ -14,4 +14,9 @@
     <ProjectReference Include="..\Inventory.Shared\Inventory.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\Commands\" />
+    <Folder Include="Application\Queries\" />
+  </ItemGroup>
+
 </Project>

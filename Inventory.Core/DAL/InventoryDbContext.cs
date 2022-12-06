@@ -14,8 +14,8 @@ namespace Inventory.Core.DAL
         {
         }
 
-        DbSet<Sale> Sales { get;  set; }
-        DbSet<Product> Products { get; set; }
+        public DbSet<Sale> Sales { get;  set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

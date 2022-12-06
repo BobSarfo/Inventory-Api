@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory.Core.Domain.Repository
+namespace Inventory.Core
 {
-    public class ISaleRepository
+    internal class Queries
     {
     }
 }

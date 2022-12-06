@@ -1,3 +1,6 @@
+using Inventory.Core.DAL;
+using Inventory.Core.DAL.Repositories;
+using Inventory.Core.Domain.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.CompilerServices;
 
@@ -12,6 +15,14 @@ namespace Inventory.Core
     {
         public static IServiceCollection AddCore(this IServiceCollection services)
         {
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ISaleRepository, SaleRepository>();
+
+            services.AddDbContext<InventoryDbContext>(option=>
+            {
+                option.UseMemoryCache();
+            });
             return services;
         }
     }
