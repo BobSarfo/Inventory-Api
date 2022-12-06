@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventory.Core.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace Inventory.Core.Domain.Entities
     public class Product
     {
         public int Id { get; set; }    
-        public string Name { get; set; }    
+        public ProductName ProductName { get; set; }    
     }
 }

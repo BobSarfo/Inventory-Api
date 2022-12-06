@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace Inventory.Core.Domain.ValueObjects
 {
-    public class CustomerName
+    public class ProductName
     {
         public string Value { get; }
 
-        public CustomerName(string value)
+        public ProductName(string value)
         {
-            if (string.IsNullOrWhiteSpace(value) || value.Length is > 100 or < 2)
+            if (string.IsNullOrWhiteSpace(value) || value.Length is > 250 or < 2)
             {
-                throw new InvalidCustomerNameException(value);
+                throw new InvalidProductNameException(value);
             }
 
             Value = value;
         }
 
-        public static implicit operator CustomerName(string value) => value is null ? null : new CustomerName(value);
+        public static implicit operator ProductName(string value) => value is null ? null : new ProductName(value);
 
-        public static implicit operator string(CustomerName value) => value?.Value;
+        public static implicit operator string(ProductName value) => value?.Value;
 
         public override int GetHashCode() => Value is not null ? Value.GetHashCode() : 0;
 

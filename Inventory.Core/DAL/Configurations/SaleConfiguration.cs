@@ -1,4 +1,5 @@
 ﻿using Inventory.Core.Domain.Entities;
+using Inventory.Core.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -13,8 +14,11 @@ namespace Inventory.Core.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<Sale> builder)
         {
-            builder.HasIndex(x=>x.ProductName).IsUnique();
             builder.Property(x => x.ProductName).IsRequired().HasMaxLength(250);
+
+
+            builder.Property(x => x.CustomerName).IsRequired().HasMaxLength(250)            
+            .HasConversion(x => x.Value, x => new CustomerName(x));
         }
     }
 }
