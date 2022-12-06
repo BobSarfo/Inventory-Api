@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Shared.Core.Exceptions
 {
-    internal static class Extensions
+    public static class Extensions
     {
         public static IServiceCollection AddErrorHandling(this IServiceCollection services)
             => services

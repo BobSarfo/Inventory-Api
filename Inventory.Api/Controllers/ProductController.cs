@@ -10,7 +10,7 @@ namespace Inventory.Api.Controllers
 
 
         [HttpGet()]
-        [SwaggerOperation("Get Sales Data")]
+        [SwaggerOperation("Get Products")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -24,7 +24,7 @@ namespace Inventory.Api.Controllers
 
 
         [HttpPost()]
-        [SwaggerOperation("Get Sales Data")]
+        [SwaggerOperation("Add Product")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
