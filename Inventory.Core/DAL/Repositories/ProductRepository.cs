@@ -25,7 +25,7 @@ namespace Inventory.Core.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<Product>> FindAll()
+        public Task<IList<Product>> FindAll()
         {
             throw new NotImplementedException();
         }
@@ -40,7 +40,7 @@ namespace Inventory.Core.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        private Task<bool> Save()
+        public Task<bool> Save()
         {
             throw new NotImplementedException();
         }

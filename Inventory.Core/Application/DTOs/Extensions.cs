@@ -20,7 +20,7 @@ namespace Inventory.Core.Application.DTOs
             };
         }
 
-        public static List<SaleDto> AsDtoList(this List<Sale> sales)
+        public static List<SaleDto> AsDtoList(this IList<Sale> sales)
         {
             return sales.Select(x =>
             new SaleDto

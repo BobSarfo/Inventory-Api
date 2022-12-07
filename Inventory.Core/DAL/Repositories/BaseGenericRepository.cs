@@ -71,7 +71,7 @@ namespace Inventory.Core.DAL.Repositories
             return await query.ToListAsync();
         }
 
-        public Task<ICollection<T>> FindAll()
+        public Task<IList<T>> FindAll()
         {
             throw new NotImplementedException();
         }
@@ -92,7 +92,7 @@ namespace Inventory.Core.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        private Task<bool> Save()
+        public Task<bool> Save()
         {
             throw new NotImplementedException();
         }

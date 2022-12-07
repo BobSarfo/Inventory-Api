@@ -40,7 +40,7 @@ namespace Inventory.Core.DAL.Repositories
             return await Save();
         }
 
-        public async Task<ICollection<Sale>> FindAll() => await  _sales.ToListAsync();
+        public async Task<IList<Sale>> FindAll() => await  _sales.ToListAsync();
 
         public async Task<Sale> FindById(int id) => await _sales.SingleOrDefaultAsync(x => x.Id == id);
 
