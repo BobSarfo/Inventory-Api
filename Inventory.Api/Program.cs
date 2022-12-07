@@ -1,6 +1,9 @@
 using Inventory.Core;
+using Inventory.Core.Domain.DTOs;
 using Inventory.Shared.Swagger;
+using MediatR;
 using Shared.Core.Exceptions;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +19,8 @@ builder.Services.AddSwagger();
 
 builder.Services.AddDomainCore();
 
+
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly(), typeof(SalesResponse).Assembly);
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 

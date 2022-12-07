@@ -1,11 +1,14 @@
 ﻿using Inventory.Core.Domain.DTOs;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory.Core.Application.Commands
+namespace Inventory.Core.Application.Queries
 {
-    public record  AddSales(ICollection<SaleDto> sales);
+    public class GetSalesQuery : IRequest<SalesResponse>
+    {
+    }
 }

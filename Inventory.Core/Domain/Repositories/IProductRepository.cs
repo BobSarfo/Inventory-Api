@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventory.Core.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Core.Domain.Repository
 {
-    internal class IProductRepository
+    internal interface IProductRepository : IBaseRepository<Product>
     {
     }
 }

@@ -20,19 +20,41 @@ namespace Inventory.Core.DAL.Repositories
             _sales = _context.Sales;
         }
 
-        public Task<Sale> GetAsync(int id)
-            => _sales.SingleOrDefaultAsync(x => x.Id == id);
-
-        public async Task AddAsync(Sale sale)
+        public async Task<bool> Create(Sale entity)
         {
-            await _sales.AddAsync(sale);
-            await _context.SaveChangesAsync();
+            _sales.Add(entity);
+            return await Save();
         }
 
-        public async Task UpdateAsync(Sale sale)
+        public async Task<bool> CreateRange(ICollection<Sale> entities)
         {
-            _sales.Update(sale);
-            await _context.SaveChangesAsync();
+
+            _sales.AddRange(entities);
+            return await Save();
         }
+
+        public async Task<bool> Delete(Sale entity)
+        {
+
+            _sales.Remove(entity);
+            return await Save();
+        }
+
+        public async Task<ICollection<Sale>> FindAll() => await  _sales.ToListAsync();
+
+        public async Task<Sale> FindById(int id) => await _sales.SingleOrDefaultAsync(x => x.Id == id);
+
+        public async Task<bool> Update(Sale entity)
+        {
+            _sales.Update(entity);
+            return await Save();
+        }
+
+        public async Task<bool> Save()
+        {
+            var changes = await _context.SaveChangesAsync();
+            return changes > 0;
+        }
+
     }
 }

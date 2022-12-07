@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Inventory.Core.Domain.DTOs
 {
-    public class SaleDto
+    public class CreateSaleRequest
     {
-        public CustomerName CustomerName { get; set; }
+        public string CustomerName { get; set; }
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
     }

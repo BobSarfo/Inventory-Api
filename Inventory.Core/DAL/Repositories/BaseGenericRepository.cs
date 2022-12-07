@@ -1,15 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Inventory.Core.Domain.Repository;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 
 namespace Inventory.Core.DAL.Repositories
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public class BaseGenericRepository<T> : IBaseRepository<T> where T : class
     {
         private readonly InventoryDbContext _context;
         private readonly DbSet<T> _db;
 
-        public BaseRepository(InventoryDbContext context)
+        public BaseGenericRepository(InventoryDbContext context)
         {
             _context = context;
             _db = _context.Set<T>();
@@ -70,16 +71,56 @@ namespace Inventory.Core.DAL.Repositories
             return await query.ToListAsync();
         }
 
+        public Task<ICollection<T>> FindAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<bool> isExists(Expression<Func<T, bool>> expression = null)
         {
             IQueryable<T> query = _db;
-            return await query.AnyAsync(expression);
+            return await query.AnyAsync(expression); 
+        }
+
+        public Task<bool> isExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        private Task<bool> Save()
+        {
+            throw new NotImplementedException();
         }
 
         public async Task Update(T entity)
         {
             _db.Update(entity);
             await _context.SaveChangesAsync();
+        }
+
+        Task<bool> IBaseRepository<T>.Create(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<bool> IBaseRepository<T>.CreateRange(ICollection<T> entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<bool> IBaseRepository<T>.Delete(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<bool> IBaseRepository<T>.Update(T entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

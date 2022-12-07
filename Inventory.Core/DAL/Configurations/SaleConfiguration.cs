@@ -19,6 +19,10 @@ namespace Inventory.Core.DAL.Configurations
 
             builder.Property(x => x.CustomerName).IsRequired().HasMaxLength(250)            
             .HasConversion(x => x.Value, x => new CustomerName(x));
+
+
+            builder.Property(x => x.ProductName).IsRequired().HasMaxLength(250)
+            .HasConversion(x => x.Value, x => new ProductName(x));
         }
     }
 }

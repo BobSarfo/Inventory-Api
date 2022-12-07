@@ -8,7 +8,46 @@ using System.Threading.Tasks;
 
 namespace Inventory.Core.DAL.Repositories
 {
-    internal class ProductRepository : IProductRepository 
+    internal class ProductRepository : IProductRepository
     {
+        public Task<bool> Create(Product entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> CreateRange(ICollection<Product> entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Delete(Product entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<Product>> FindAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Product> FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> isExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        private Task<bool> Save()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Update(Product entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
