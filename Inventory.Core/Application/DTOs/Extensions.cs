@@ -20,7 +20,7 @@ namespace Inventory.Core.Application.DTOs
             };
         }
 
-        public static List<SaleDto> AsDtoList(this IList<Sale> sales)
+        public static List<SaleDto> AsSaleDtoList(this IList<Sale> sales)
         {
             return sales.Select(x =>
             new SaleDto
@@ -29,6 +29,17 @@ namespace Inventory.Core.Application.DTOs
                 Id = x.Id,
                 Price = x.ProductPrice,
                 Product = x.ProductName.Value
+
+            }).ToList();
+        }
+
+        public static List<ProductDto> AsProductDtoList(this IList<Product> products)
+        {
+            return products.Select(x =>
+            new ProductDto
+            {
+                ProductName = x.ProductName.Value,
+                Price = x.Price,
 
             }).ToList();
         }

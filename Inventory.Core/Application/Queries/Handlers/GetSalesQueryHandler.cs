@@ -20,7 +20,7 @@ namespace Inventory.Core.Application.Queries.Handlers
         }
         public async Task<SalesResponse> Handle(GetSalesQuery request, CancellationToken cancellationToken)
         {                      
-            var saleDtoList=  (await _saleRepository.FindAll()).AsDtoList();
+            var saleDtoList=  (await _saleRepository.FindAll()).AsSaleDtoList();
             return new SalesResponse { Items = saleDtoList };
         }
     }
