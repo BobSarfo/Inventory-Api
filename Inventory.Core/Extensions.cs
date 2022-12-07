@@ -30,7 +30,7 @@ namespace Inventory.Core
         {
             services.AddDbContext<InventoryDbContext>(option =>
                 {
-                    option.UseNpgsql(conn, b => b.MigrationsAssembly("Inventory.Core.DAL"));
+                    option.UseNpgsql(conn, b => b.MigrationsAssembly(typeof(InventoryDbContext).Assembly.ToString()));
                 });
 
             return services;
