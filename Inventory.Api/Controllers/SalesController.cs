@@ -21,10 +21,9 @@ namespace Inventory.Api.Controllers
         }
 
 
-
         [HttpGet]
         [SwaggerOperation("Get Sales Data")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SalesResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -43,8 +42,8 @@ namespace Inventory.Api.Controllers
 
 
         [HttpPost()]
-        [SwaggerOperation("Get Sales Data")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [SwaggerOperation("Add Sale")]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(bool))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -59,7 +58,7 @@ namespace Inventory.Api.Controllers
 
 
         [HttpPost("multi")]
-        [SwaggerOperation("Get a sales")]
+        [SwaggerOperation("Add Sales")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
