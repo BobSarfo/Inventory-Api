@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Inventory.Core.Application.Queries;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Inventory.Api.Controllers
@@ -8,8 +10,14 @@ namespace Inventory.Api.Controllers
     public class ProductController : ControllerBase
     {
 
+        private readonly IMediator _mediator;
 
-        [HttpGet()]
+        public ProductController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpGet]
         [SwaggerOperation("Get Products")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -17,7 +25,13 @@ namespace Inventory.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetProducts()
         {
-            throw new NotImplementedException();
+            var result = await _mediator.Send(new GetProductsQuery());
+            if (result is not null)
+            {
+                return Ok(result);
+            }
+
+            return NotFound();
 
         }
 

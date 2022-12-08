@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Core", "Inventory
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Shared", "Inventory.Shared\Inventory.Shared.csproj", "{C1E893D1-C8B8-48A2-BD0F-1678D23FFC4A}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{73DF7B7E-CC45-49DC-9139-29AE4B13BF4C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{C1E893D1-C8B8-48A2-BD0F-1678D23FFC4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1E893D1-C8B8-48A2-BD0F-1678D23FFC4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1E893D1-C8B8-48A2-BD0F-1678D23FFC4A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73DF7B7E-CC45-49DC-9139-29AE4B13BF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73DF7B7E-CC45-49DC-9139-29AE4B13BF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73DF7B7E-CC45-49DC-9139-29AE4B13BF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73DF7B7E-CC45-49DC-9139-29AE4B13BF4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
