@@ -25,7 +25,7 @@ builder.Services.AddCors(options =>
                  builder =>
                  {
                      builder
-                     .WithOrigins("http://localhost:4200")
+                     .WithOrigins("http://localhost:3000")
                      .AllowAnyHeader()
                      .AllowAnyMethod();
                  });
@@ -65,6 +65,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapGet("/", () => "v1 Active");
 
 app.UseDbMigration();
 

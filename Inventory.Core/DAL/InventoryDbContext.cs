@@ -25,7 +25,7 @@ namespace Inventory.Core.DAL
                     {
                         Id = 1,
                         CustomerName = "Dave",
-                        ProductName = "Laptop",
+                        ProductName = "laptop",
                         ProductPrice = 900
                     },
                     new Sale
