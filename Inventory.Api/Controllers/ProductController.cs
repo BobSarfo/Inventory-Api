@@ -1,4 +1,6 @@
-﻿using Inventory.Core.Application.Queries;
+﻿using Inventory.Core.Application.Commands;
+using Inventory.Core.Application.Queries;
+using Inventory.Core.Domain.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -39,13 +41,16 @@ namespace Inventory.Api.Controllers
 
         [HttpPost()]
         [SwaggerOperation("Add Product")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(bool))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> AddProduct()
+        public async Task<IActionResult> AddProduct([FromBody] CreateProductRequest createProductRequest)
         {
-            throw new NotImplementedException();
+            var result = await _mediator.Send(new CreateProductComand { ProductRequest = createProductRequest });
+
+            return Created("/", result);
+
         }
     }
 }

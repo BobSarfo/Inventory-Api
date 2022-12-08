@@ -20,6 +20,15 @@ namespace Inventory.Core.Application.DTOs
             };
         }
 
+        public static Product AsEntity(this CreateProductRequest productRequest)
+        {
+            return new Product
+            {
+                ProductName = productRequest.ProductName,
+                Price = productRequest.Price,
+            };
+        }
+
         public static List<SaleDto> AsSaleDtoList(this IList<Sale> sales)
         {
             return sales.Select(x =>
@@ -43,5 +52,8 @@ namespace Inventory.Core.Application.DTOs
 
             }).ToList();
         }
+
+
+
     }
 }
