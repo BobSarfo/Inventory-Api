@@ -72,8 +72,6 @@ app.UseDbMigration();
 
 app.UseErrorHandling();
 
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
