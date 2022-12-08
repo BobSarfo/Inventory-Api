@@ -8,10 +8,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Inventory.Core.Migrations
+namespace Inventory.Api.Migrations
 {
     [DbContext(typeof(InventoryDbContext))]
-    [Migration("20221207013018_init")]
+    [Migration("20221208142515_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -46,6 +46,26 @@ namespace Inventory.Core.Migrations
                         .IsUnique();
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Price = 600m,
+                            ProductName = "laptop"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Price = 3m,
+                            ProductName = "paper"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Price = 35m,
+                            ProductName = "keyboard"
+                        });
                 });
 
             modelBuilder.Entity("Inventory.Core.Domain.Entities.Sale", b =>
@@ -72,6 +92,43 @@ namespace Inventory.Core.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sales");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CustomerName = "Dave",
+                            ProductName = "laptop",
+                            ProductPrice = 900m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CustomerName = "George",
+                            ProductName = "keyboard",
+                            ProductPrice = 35m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CustomerName = "Fiona",
+                            ProductName = "paper",
+                            ProductPrice = 5m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CustomerName = "Rory",
+                            ProductName = "paper",
+                            ProductPrice = 3m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CustomerName = "Olivia",
+                            ProductName = "laptop",
+                            ProductPrice = 600m
+                        });
                 });
 #pragma warning restore 612, 618
         }

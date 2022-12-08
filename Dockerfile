@@ -19,9 +19,9 @@ RUN dotnet restore "Inventory-Api/Inventory.Api/Inventory.Api.csproj"
 COPY . .
 WORKDIR "/src/Inventory.Api"
 
-COPY . .
-WORKDIR "/src/Inventory.Api"
-RUN dotnet build "Inventory.Api.csproj" -c Release -o /app/build
+# COPY . .
+# WORKDIR "/src/Inventory.Api"
+# RUN dotnet build "Inventory.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "Inventory.Api.csproj" -c Release -o /app/publish

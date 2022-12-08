@@ -3,7 +3,9 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Inventory.Core.Migrations
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
+namespace Inventory.Api.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration
@@ -38,6 +40,28 @@ namespace Inventory.Core.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sales", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "Price", "ProductName" },
+                values: new object[,]
+                {
+                    { 1, 600m, "laptop" },
+                    { 2, 3m, "paper" },
+                    { 3, 35m, "keyboard" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Sales",
+                columns: new[] { "Id", "CustomerName", "ProductName", "ProductPrice" },
+                values: new object[,]
+                {
+                    { 1, "Dave", "laptop", 900m },
+                    { 2, "George", "keyboard", 35m },
+                    { 3, "Fiona", "paper", 5m },
+                    { 4, "Rory", "paper", 3m },
+                    { 5, "Olivia", "laptop", 600m }
                 });
 
             migrationBuilder.CreateIndex(
