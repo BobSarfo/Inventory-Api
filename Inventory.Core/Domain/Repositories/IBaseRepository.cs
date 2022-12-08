@@ -6,7 +6,7 @@ namespace Inventory.Core.Domain.Repository
 {
     public interface IBaseRepository<T> where T : class
     {
-        public Task<T> FindById(int id);
+        public Task<T?> FindById(int id);
         public Task<IList<T>> FindAll();  
         public Task<bool> Create(T entity);
         public Task<bool> CreateRange(ICollection<T> entity);

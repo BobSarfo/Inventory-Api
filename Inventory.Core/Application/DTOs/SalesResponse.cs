@@ -9,6 +9,6 @@ namespace Inventory.Core.Domain.DTOs
 {
     public class SalesResponse
     {
-        public List<SaleDto> Sales { get; set; }
+        public List<SaleDto> Sales { get; set; } = new List<SaleDto>();
     }
 }

@@ -42,7 +42,7 @@ namespace Inventory.Core.DAL.Repositories
 
         public async Task<IList<Sale>> FindAll() => await  _sales.ToListAsync();
 
-        public async Task<Sale> FindById(int id) => await _sales.SingleOrDefaultAsync(x => x.Id == id);
+        public async Task<Sale?> FindById(int id) => await _sales.SingleOrDefaultAsync(x => x.Id == id);
 
         public async Task<bool> Update(Sale entity)
         {

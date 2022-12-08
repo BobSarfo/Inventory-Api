@@ -8,7 +8,7 @@ namespace Inventory.Core.Domain.DTOs
 {
     public class CreateProductRequest
     {
-        public string ProductName { get; set; }
+        public string? ProductName { get; set; }
         public decimal Price { get; set; }
     }
 }

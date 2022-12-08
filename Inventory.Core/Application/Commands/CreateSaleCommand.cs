@@ -10,6 +10,6 @@ namespace Inventory.Core.Application.Commands
 {
     internal class CreateSaleCommand : IRequest<bool>
     {
-        public CreateSaleRequest SaleRequest { get; set; }
+        public CreateSaleRequest? SaleRequest { get; set; }
     }
 }

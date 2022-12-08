@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Core.Domain.ValueObjects
 {
-    public class CustomerName
+    public record CustomerName
     {
         public string Value { get; }
 

@@ -10,7 +10,7 @@ namespace Inventory.Core.Domain.Entities
     public class Product
     {
         public int Id { get; set; }    
-        public ProductName ProductName { get; set; }
+        public ProductName? ProductName { get; set; }
         public decimal Price { get; set; }
     }
 }
