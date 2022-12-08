@@ -69,13 +69,13 @@ namespace Inventory.Core.DAL
                     },
                      new Product
                      {
-                         Id = 1,
+                         Id = 2,
                          ProductName = "paper",
                          Price = 3
                      },
                       new Product
                       {
-                          Id = 1,
+                          Id = 3,
                           ProductName = "keyboard",
                           Price = 35
                       }

@@ -1,5 +1,6 @@
 ﻿using Inventory.Core.Domain.Entities;
 using Inventory.Core.Domain.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,25 @@ namespace Inventory.Core.DAL.Repositories
 {
     internal class ProductRepository : IProductRepository
     {
-        public Task<bool> Create(Product entity)
+        private readonly InventoryDbContext _context;
+        private readonly DbSet<Product> _products;
+
+        public ProductRepository(InventoryDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+            _products = context.Products; 
+
+        }
+        public async Task<bool> Create(Product entity)
+        {
+            _products.Add(entity);
+            return await Save();
         }
 
-        public Task<bool> CreateRange(ICollection<Product> entity)
+        public async Task<bool> CreateRange(ICollection<Product> entities)
         {
-            throw new NotImplementedException();
+            _products.AddRange(entities);
+            return await Save();
         }
 
         public Task<bool> Delete(Product entity)
@@ -25,9 +37,9 @@ namespace Inventory.Core.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IList<Product>> FindAll()
+        public async Task<IList<Product>> FindAll()
         {
-            throw new NotImplementedException();
+           return await _products.ToListAsync();
         }
 
         public Task<Product> FindById(int id)
@@ -40,9 +52,10 @@ namespace Inventory.Core.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> Save()
+        public async Task<bool> Save()
         {
-            throw new NotImplementedException();
+            var changes = await _context.SaveChangesAsync();
+            return changes > 0;
         }
 
         public Task<bool> Update(Product entity)
