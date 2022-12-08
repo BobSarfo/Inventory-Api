@@ -55,18 +55,5 @@ namespace Inventory.Api.Controllers
 
         }
 
-
-
-        //[HttpPost("multi")]
-        //[SwaggerOperation("Add Sales")]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //public async Task<IActionResult> AddSale()
-        //{
-
-        //    throw new NotImplementedException();
-        //}
     }
 }
