@@ -5,8 +5,27 @@ using MediatR;
 using Shared.Core.Exceptions;
 using System.Reflection;
 
+
+IConfiguration configuration;
+string connectionString;
 var builder = WebApplication.CreateBuilder(args);
 
+if (builder.Environment.IsDevelopment())
+{
+    configuration = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.Development.json")
+        .AddEnvironmentVariables()
+        .Build();
+    connectionString = configuration["ConnectionStrings:DBConnection"];
+}
+else
+{
+    configuration = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.json")
+        .AddEnvironmentVariables()
+        .Build();
+    connectionString = configuration["ConnectionStrings:DBConnection"];
+}
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -25,7 +44,7 @@ builder.Services.AddCors(options =>
                  builder =>
                  {
                      builder
-                     .WithOrigins("http://localhost:3000")
+                     .WithOrigins(configuration["origins"])
                      .AllowAnyHeader()
                      .AllowAnyMethod();
                  });
@@ -33,12 +52,11 @@ builder.Services.AddCors(options =>
       builder =>
       {
           builder
-          .WithOrigins("http://localhost")
+          .WithOrigins(configuration["origins"])
           .AllowAnyHeader()
           .AllowAnyMethod();
       });
 });
-
 
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly(), typeof(SalesResponse).Assembly);
 
@@ -46,7 +64,8 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 string? connStr = builder.Environment.IsProduction() ? builder.Configuration.GetConnectionString
            ("cloudUrl") : builder.Configuration.GetConnectionString("default");
-builder.Services.AddDb(connStr ?? "");
+
+builder.Services.AddDb(connectionString );
 
 
 var app = builder.Build();
